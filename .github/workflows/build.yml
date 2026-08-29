@@ -30,7 +30,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     env:
       # Redirect Electron / electron-builder caches to a workspace-local path
       # so a single `path:` works on Linux, macOS, and Windows.
