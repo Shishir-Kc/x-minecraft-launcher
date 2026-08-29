@@ -1,6 +1,15 @@
 name: Patch release note
 description: Patch release note
+inputs:
+  body:
+    description: Existing release note body
+    required: true
+  version:
+    description: Release version without the v prefix
+    required: true
+outputs:
+  body:
+    description: Release note body with download links
 runs:
   using: 'node20'
   main: index.js
-  
