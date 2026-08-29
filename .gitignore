@@ -34,3 +34,7 @@ e2e/test-results/
 
 # local download-probe / benchmark artifacts (opt-in tests)
 /bench-out/
+
+# local Wrangler and Supabase state
+**/.wrangler/
+**/.temp/
