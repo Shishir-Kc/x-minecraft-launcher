@@ -82,6 +82,19 @@ jobs:
           RELEASE: ${{ startsWith(github.event.head_commit.message, 'chore(release)') || github.event_name == 'workflow_dispatch' }}
           CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_TOKEN }}
           PUBLISHER: CN=SignPath Foundation, O=SignPath Foundation, L=Lewes, S=Delaware, C=US
+      - name: Build Windows installer
+        if: ${{ runner.os == 'Windows' }}
+        run: pnpm run --prefix xmcl-electron-app build:all
+        env:
+          BUILD_NUMBER: ${{ github.run_number }}
+          NODE_ENV: production
+          PUBLISHER: CN=SignPath Foundation, O=SignPath Foundation, L=Lewes, S=Delaware, C=US
+      - name: Upload Windows installer
+        if: ${{ runner.os == 'Windows' }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: windows-installer
+          path: xmcl-electron-app/build/output/*.exe
       - name: Upload Source Maps
         if: ${{ runner.os == 'Windows' }}
         uses: actions/upload-artifact@v6
