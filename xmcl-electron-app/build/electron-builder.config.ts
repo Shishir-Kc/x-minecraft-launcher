@@ -128,6 +128,23 @@ export const config = {
       { target: 'pacman', arch: ['x64', 'arm64'] },
     ],
   },
+  pacman: {
+    depends: [
+      'c-ares',
+      'ffmpeg',
+      'gtk3',
+      'libevent',
+      'libvpx',
+      'libxslt',
+      'libxss',
+      'minizip',
+      'nss',
+      're2',
+      'snappy',
+      'libnotify',
+      'libappindicator-gtk3',
+    ],
+  },
   snap: {
     publish: [
       'github',
