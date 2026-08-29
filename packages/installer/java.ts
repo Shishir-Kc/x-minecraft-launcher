@@ -106,6 +106,11 @@ export function parseJavaVersion(
     if (!str) {
       return undefined
     }
+    // Avoid treating unrelated executables (for example Node.js, whose
+    // `-version` output is `v22.23.2`) as Java runtimes.
+    if (!/(?:java|openjdk)\b|JAVA_VERSION\s*=/i.test(str)) {
+      return undefined
+    }
     const match = /(\d+)\.(\d)+\.(\d+)(_\d+)?/.exec(str)
     if (match === null) {
       // Fallback: handle modern major-only version strings such as
