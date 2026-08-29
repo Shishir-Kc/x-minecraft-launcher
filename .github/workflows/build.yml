@@ -354,7 +354,7 @@ jobs:
           stage: "release"
       - name: Create Tag
         run: |
-          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/voxelum/x-minecraft-launcher.git"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
           git config user.name ci010
           git config user.email cijhn@hotmail.com
           git tag -f ${{ steps.prepare_release.outputs.tag }}
