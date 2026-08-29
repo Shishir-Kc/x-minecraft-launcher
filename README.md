@@ -50,6 +50,10 @@ If you have winget, you can use winget to install
 winget install CI010.XMinecraftLauncher
 ```
 
+Windows users can also download the versioned setup installer from the
+project's GitHub release page. Linux users can choose the versioned AppImage,
+Debian, RPM, or Arch package for their architecture.
+
 HomeBrew installation also available via tap
 
 ```bash

@@ -17,7 +17,7 @@ async function main() {
   const appImageArmUrl = `https://github.com/Voxelum/x-minecraft-launcher/releases/download/v${version}/xmcl-${version}-arm64.AppImage`
 
   content += `\n\n## Downloads\n\n`
-  content += `- Windows (x64): [zip](https://github.com/Voxelum/x-minecraft-launcher/releases/download/v${version}/xmcl-${version}-win32-x64.zip)\n`
+  content += `- Windows (x64): [installer](https://github.com/Voxelum/x-minecraft-launcher/releases/download/v${version}/xmcl-${version}-win32-x64.exe) [zip](https://github.com/Voxelum/x-minecraft-launcher/releases/download/v${version}/xmcl-${version}-win32-x64.zip)\n`
   content += `- Linux (x64): [AppImage](${appImageUrl}) [deb](${debUrl}) [tar.xz](${tarUrl}) [rpm](${rpmUrl})\n`
   content += `- Linux (arm64): [AppImage](${appImageArmUrl}) [deb](${debArmUrl}) [tar.xz](${tarArmUrl}) [rpm](${rpmArmUrl})\n`
   content += `- Mac (x64): [dmg](https://github.com/Voxelum/x-minecraft-launcher/releases/download/v${version}/xmcl-${version}-x64.dmg)\n`
@@ -27,4 +27,3 @@ async function main() {
 }
 
 main();
-

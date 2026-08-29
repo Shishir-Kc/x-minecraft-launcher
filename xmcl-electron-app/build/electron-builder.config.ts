@@ -86,6 +86,13 @@ export const config = {
     electronLanguages: ['en-US'],
     target: [
       {
+        target: 'nsis',
+        arch: [
+          'x64',
+          'ia32',
+        ],
+      },
+      {
         target: 'zip',
         arch: [
           'x64',
@@ -94,6 +101,14 @@ export const config = {
       },
       'appx',
     ],
+  },
+  nsis: {
+    oneClick: false,
+    allowToChangeInstallationDirectory: true,
+    perMachine: false,
+    createDesktopShortcut: true,
+    createStartMenuShortcut: true,
+    shortcutName: 'XMCL',
   },
   linux: {
     executableName: 'xmcl',
