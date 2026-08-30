@@ -139,16 +139,16 @@ jobs:
           # LICENSE.electron.txt and manifest.json. Upload only distributable
           # installers and their checksums so asset names cannot collide.
           mapfile -t assets < <(find release-assets -type f \( \
-            -name '*.exe' -o \
-            -name '*.appx' -o \
-            -name '*.dmg' -o \
-            -name '*.zip' -o \
-            -name '*.AppImage' -o \
-            -name '*.deb' -o \
-            -name '*.rpm' -o \
-            -name '*.tar.xz' -o \
-            -name '*.pacman' -o \
-            -name '*.sha256' \
+            -name 'xmcl-*.exe' -o \
+            -name 'xmcl-*.appx' -o \
+            -name 'xmcl-*.dmg' -o \
+            -name 'xmcl-*.zip' -o \
+            -name 'xmcl-*.AppImage' -o \
+            -name 'xmcl-*.deb' -o \
+            -name 'xmcl-*.rpm' -o \
+            -name 'xmcl-*.tar.xz' -o \
+            -name 'xmcl-*.pacman' -o \
+            -name 'xmcl-*.sha256' \
           \) | sort)
           if [ "${#assets[@]}" -eq 0 ]; then
             echo 'No packaged installers were downloaded.'
