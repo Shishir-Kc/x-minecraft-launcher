@@ -135,7 +135,21 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ steps.tag.outputs.tag }}
         run: |
-          mapfile -t assets < <(find release-assets -type f | sort)
+          # Each platform bundle also contains shared files such as
+          # LICENSE.electron.txt and manifest.json. Upload only distributable
+          # installers and their checksums so asset names cannot collide.
+          mapfile -t assets < <(find release-assets -type f \( \
+            -name '*.exe' -o \
+            -name '*.appx' -o \
+            -name '*.dmg' -o \
+            -name '*.zip' -o \
+            -name '*.AppImage' -o \
+            -name '*.deb' -o \
+            -name '*.rpm' -o \
+            -name '*.tar.xz' -o \
+            -name '*.pacman' -o \
+            -name '*.sha256' \
+          \) | sort)
           if [ "${#assets[@]}" -eq 0 ]; then
             echo 'No packaged installers were downloaded.'
             exit 1
