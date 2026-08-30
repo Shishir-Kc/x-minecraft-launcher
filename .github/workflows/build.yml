@@ -152,7 +152,9 @@ jobs:
   build-arch:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ true }}
+    # This job expects the release-only `build-Linux` artifact. Keep it
+    # disabled until that artifact is produced by this workflow again.
+    if: ${{ false }}
     strategy:
       matrix:
         include:
